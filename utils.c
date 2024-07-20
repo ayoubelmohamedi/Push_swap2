@@ -6,10 +6,9 @@
 /*   By: asodor <asodor@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 13:50:49 by asodor            #+#    #+#             */
-/*   Updated: 2024/07/20 19:34:00 by asodor           ###   ########.fr       */
+/*   Updated: 2024/07/20 19:49:43 by asodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 t_stack *init_stack(void) {
     t_stack *stack = (t_stack *)malloc(sizeof(t_stack));

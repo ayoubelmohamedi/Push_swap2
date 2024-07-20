@@ -6,10 +6,11 @@
 /*   By: asodor <asodor@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 13:50:12 by asodor            #+#    #+#             */
-/*   Updated: 2024/07/20 19:34:08 by asodor           ###   ########.fr       */
+/*   Updated: 2024/07/20 19:49:22 by asodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 
 // Function to check if a string is a valid integer
 int is_integer(char *str) {

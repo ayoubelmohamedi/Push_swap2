@@ -6,10 +6,11 @@
 /*   By: asodor <asodor@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 13:49:53 by asodor            #+#    #+#             */
-/*   Updated: 2024/07/20 19:34:13 by asodor           ###   ########.fr       */
+/*   Updated: 2024/07/20 19:48:17 by asodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 
 void sa(t_stack *a) {
     if (a->top && a->top->next) {
