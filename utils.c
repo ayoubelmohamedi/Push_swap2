@@ -10,12 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
 t_stack *init_stack(void) {
     t_stack *stack = (t_stack *)malloc(sizeof(t_stack));
     if (!stack)
         return NULL;
     stack->top = NULL;
-    return stack;
+     return stack;
 }
 
 void push(t_stack *stack, int value) {
@@ -25,6 +27,11 @@ void push(t_stack *stack, int value) {
     new_node->value = value;
     new_node->next = stack->top;
     stack->top = new_node;
+}
+
+
+int is_empty(t_stack *stack) {
+    return stack->top == NULL;
 }
 
 int pop(t_stack *stack) {
@@ -37,14 +44,9 @@ int pop(t_stack *stack) {
     return value;
 }
 
-int is_empty(t_stack *stack) {
-    return stack->top == NULL;
-}
-
 void free_stack(t_stack *stack) {
     while (!is_empty(stack)) {
         pop(stack);
     }
     free(stack);
 }
-
