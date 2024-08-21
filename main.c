@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asodor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/02 05:05:30 by asodor            #+#    #+#             */
-/*   Updated: 2024/08/02 05:20:03 by asodor           ###   ########.fr       */
+/*   Created: 2024/07/20 19:16:51 by asodor            #+#    #+#             */
+/*   Updated: 2024/08/21 09:33:32 by asodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_stack_new(int content)
+int	main(int argc, char **argv)
 {
-	t_stack	*new;
+	t_stack_node	*a;
+	t_stack_node	*b;
 
-	new = malloc(sizeof (t_stack));
-	if (!new)
-		ft_error();
-	new->nbr = content;
-	new->next = NULL;
-	return (new);
-}
-
-void	ft_add_back(t_stack **stack, t_stack *new)
-{
-	if (!stack)
-		return ;
-	if (!*stack)
-		*stack = new;
-	else
-		(ft_lstlast(*stack))->next = new;
+	a = NULL;
+	b = NULL;
+	if (1 == argc || (2 == argc && !argv[1][0]))
+		return (1);
+	else if (2 == argc)
+		argv = ft_split(argv[1], ' ');
+	stack_init(&a, argv + 1, 2 == argc);
+	if (!stack_sorted(a))
+	{
+		if (stack_len(a) == 2)
+			sa(&a, false);
+		else if (stack_len(a) == 3)
+			sort_three(&a);
+		else
+			push_swap(&a, &b);
+	}
+	free_stack(&a);
 }
