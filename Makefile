@@ -11,7 +11,6 @@
 # **************************************************************************** #
 
 NAME = push_swap
-ARCHIVE = push_swap.a
 CC = cc
 CFLAGS = -Wall -Werror -Wextra 
 
@@ -21,7 +20,7 @@ OBJS = $(SRCS:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $< -o $@
+	$(CC) $(OBJS) -o $@
 
 %.o : %.c 
 	$(CC) $(CFLAGS) -c $< -o $@ 
@@ -34,4 +33,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : all clean fclea re
+.PHONY : all clean fclean re
