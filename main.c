@@ -12,6 +12,38 @@
 
 #include "push_swap.h"
 
+#include <stdio.h>
+int ft_isvalid(char **argv)
+{
+	size_t i;
+	size_t j;
+	char **spt;
+
+	i = 0;
+	argv++;
+	while (argv[i])
+	{
+		spt = ft_split(argv[i],' ');
+		printf("current argv[%zu] => %s\n", i, argv[i]);
+		if (spt == NULL)
+			return (0);
+		j = 0;
+		while (spt[j])	
+		{
+			printf("spt[%zu] ===> %s\n", j, spt[j]);
+			if (error_syntax(spt[j]))
+			{
+				printf("error here where spt[j] == %s\n", spt[j]);
+				// free_matrix(spt);
+				return (0);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
@@ -19,11 +51,14 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (1 == argc || (2 == argc && !argv[1][0]))
+	if (1 == argc || !ft_isvalid(argv))
+	{
+		printf("unvalid syntax\n");
 		return (1);
-	else if (2 == argc)
-		argv = ft_split(argv[1], ' ');
-	stack_init(&a, argv + 1, 2 == argc);
+	}
+	printf("valid syntax");
+	exit(0);
+	stack_init(&a, argv + 1 , 2 == argc);
 	if (!stack_sorted(a))
 	{
 		if (stack_len(a) == 2)

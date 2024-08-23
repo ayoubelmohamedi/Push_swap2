@@ -40,6 +40,7 @@ static long	ft_atol(const char *str)
 	return (num * isneg);
 }
 
+#include <stdio.h>
 void	stack_init(t_stack_node **a, char **argv, bool flag_argc_2)
 {
 	long	nbr;
@@ -48,6 +49,8 @@ void	stack_init(t_stack_node **a, char **argv, bool flag_argc_2)
 	i = 0;
 	while (argv[i])
 	{
+		// printf("%d => %s\n", i , argv[i]);
+
 		if (error_syntax(argv[i]))
 			error_free(a, argv, flag_argc_2);
 		nbr = ft_atol(argv[i]);
